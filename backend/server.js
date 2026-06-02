@@ -10,6 +10,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../frontend')));
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ message: 'Server is running', backend: process.env.LLM_BACKEND });
