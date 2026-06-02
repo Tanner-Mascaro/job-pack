@@ -1,10 +1,11 @@
 {
   "name": "jobpack",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Job Pack - AI powered resume and cover letter generator",
+  "main": "backend/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/server.js",
+    "build": "npm rebuild better-sqlite3"
   },
   "keywords": [],
   "author": "",
