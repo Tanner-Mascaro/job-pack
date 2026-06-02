@@ -1,3 +1,7 @@
+// AI Attribution: Built with assistance from Claude Sonnet 4.6
+// Used for: LLM backend Strategy pattern, factory implementation, 
+// SQLite persistence, and API integration
+
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');

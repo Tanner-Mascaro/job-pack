@@ -1,3 +1,6 @@
+// AI Attribution: Built with assistance from Claude Sonnet 4.6
+// Used for: Factory Method and Strategy pattern implementation
+
 const OllamaClient = require('./ollama');
 
 function getLLMClient() {
