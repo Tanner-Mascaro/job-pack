@@ -8,16 +8,17 @@ class OllamaClient {
   }
 
   async generate(prompt) {
+    const headers = { 'Content-Type': 'application/json' };
+    if (this.apiKey) {
+      headers['Authorization'] = `Bearer ${this.apiKey}`;
+    }
+
     const response = await axios.post(`${this.url}/api/chat`, {
       model: this.model,
       messages: [{ role: 'user', content: prompt }],
       stream: false
-    }, {
-      headers: {
-        'Authorization': `Bearer ${this.apiKey}`,
-        'Content-Type': 'application/json'
-      }
-    });
+    }, { headers });
+
     return response.data.message.content;
   }
 }
