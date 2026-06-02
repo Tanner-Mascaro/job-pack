@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Pack</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body { font-family: sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; }
+    textarea { width: 100%; height: 150px; margin-bottom: 10px; padding: 10px; font-size: 14px; }
+    button { padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; }
+    button:disabled { background: #93c5fd; }
+    .output { margin-top: 20px; }
+    .output h2 { border-bottom: 1px solid #ccc; padding-bottom: 8px; }
+    pre { background: #f3f4f6; padding: 15px; border-radius: 6px; white-space: pre-wrap; }
+    #drafts-list { margin-top: 30px; }
+    .draft-item { padding: 10px; border: 1px solid #ccc; border-radius: 6px; margin-bottom: 8px; cursor: pointer; }
+    .draft-item:hover { background: #f3f4f6; }
+    #error { color: red; margin-top: 10px; }
+    #loading { display: none; color: #2563eb; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Job Pack Generator</h1>
+
+  <label><b>Job Title</b></label>
+  <input id="job-title" type="text" placeholder="e.g. Software Engineer" style="width:100%;padding:10px;margin-bottom:10px;font-size:14px;">
+
+  <label><b>Job Description</b></label>
+  <textarea id="job-description" placeholder="Paste the job description here..."></textarea>
+
+  <label><b>Candidate Profile</b></label>
+  <textarea id="candidate-profile" placeholder="Paste your profile, resume, or background here..."></textarea>
+
+  <button id="generate-btn" onclick="generate()">Generate Documents</button>
+  <div id="loading">Generating... this may take 30-60 seconds.</div>
+  <div id="error"></div>
+
+  <div class="output" id="output" style="display:none;">
+    <h2>Resume</h2>
+    <pre id="resume-output"></pre>
+    <h2>Cover Letter</h2>
+    <pre id="cover-letter-output"></pre>
+    <h2>Company Fit</h2>
+    <pre id="infographic-output"></pre>
+    <button onclick="downloadPDF('resume')">Download Resume PDF</button>
+    <button onclick="downloadPDF('cover-letter')">Download Cover Letter PDF</button>
+  </div>
+
+  <div id="drafts-list">
+    <h2>Saved Drafts</h2>
+    <div id="drafts"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
